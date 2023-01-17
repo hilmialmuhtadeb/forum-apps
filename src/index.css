@@ -1,13 +1,239 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* my own css */
+body {
+	font-family: 'Georgia', serif;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #333;
+}
+input {
+	font-family: inherit;
+	font-size: inherit;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	background-color: #ebebeb;
+}
+.nav-logo .app-title {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.nav-mid {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+}
+.nav-mid img {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+.nav-right {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+.nav-right__item.login {
+	padding: .2rem 1rem;
+	background-color: #7c7c7c;
+	color: white;
+	text-decoration: none;
+}
+
+.auth-box {
+	width: 400px;
+	margin: 8rem auto 0;
+	padding: 2rem;
+	box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+.auth-box h1 {
+	text-align: center;
+	font-weight: bold;
+	font-size: 2rem;
+	margin-bottom: 2rem;
+}
+.auth-box .alert {
+	text-align: center;
+}
+.auth-form label,
+.auth-form input {
+	display: block;
+	width: 100%;
+}
+.auth-form input {
+	margin-bottom: 1rem;
+	padding: .5rem;
+	box-sizing: border-box;
+}
+.auth-form button {
+	font-family: inherit;
+	font-size: inherit;
+	padding: .5rem 1rem;
+	margin-bottom: 2rem;
+	cursor: pointer;
+}
+
+.threads-page {
+	width: 40%;
+	margin: 2rem auto;
+}
+.threads-page h1 {
+	margin-bottom: 2rem;
+	font-size: large;
+	font-weight: bold;
+}
+.threads-wrapper {
+	width: 100%;
+}
+.thread-card {
+	width: 100%;
+	padding: 2rem;
+	border-bottom: 1px solid #a3a3a3;
+}
+.thread-card__title {
+	font-size: large;
+	margin-bottom: 1rem;
+}
+.thread-card__body {
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	margin-bottom: 1rem;
+}
+.thread-card__footer {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+}
+.thread-card__footer .author {
+	font-weight: bold;
+}
+
+.thread-wrapper {
+	width:40%;
+	margin: 2rem auto;
+}
+.thread-wrapper .loading-state {
+	text-align: center;
+	margin: 8rem 0;
+}
+.thread__title {
+	margin-bottom: 1rem;
+	font-size: 1.8rem;
+	font-weight: bold;
+}
+.thread__body {
+	font-size: 1.2rem;
+	margin-bottom: 1rem;
+}
+.thread-author {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+}
+.thread-author__avatar {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+.comments .not-login {
+	text-align: center;
+	margin-bottom: 1rem;
+	background-color: #eaeaea;
+	padding: .5rem;
+}
+.comments h2 {
+	margin: 2rem 0 1rem;
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+.comment-input-box {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	margin-bottom: 2rem;
+}
+.comment-input-box input {
+	width: 100%;
+	padding: 1rem;
+	border: 1px solid #a3a3a3;
+	background-color: #eaeaea;
+	border-radius: 5px;
+	font-family: inherit;
+}
+.comment-input-box button {
+	padding: .5rem 1rem;
+	cursor: pointer;
+	box-sizing: border-box;
+	align-self: stretch;
+	font-family: inherit;
+}
+.comment {
+	padding-bottom: 1rem;
+	border-bottom: 1px solid #333;
+	margin-bottom: 1rem;
+}
+.comment-author {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	margin-bottom: 1rem;
+}
+.comment-author__avatar {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
 }
