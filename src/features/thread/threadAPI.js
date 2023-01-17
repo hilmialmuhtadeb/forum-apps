@@ -41,8 +41,29 @@ async function addCommentToThread({ id, comment }) {
   return { error: false, data: responseJson.data };
 }
 
+async function addNewThread({ title, body }) {
+  const response = await fetchWithToken(`${BASE_URL}/threads`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      title,
+      body,
+    }),
+  });
+  const responseJson = await response.json();
+
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
+
+  return { error: false, data: responseJson.data };
+}
+
 export {
   getAllThreads,
   getDetailThread,
   addCommentToThread,
+  addNewThread,
 };

@@ -8,6 +8,8 @@ import {
   Detail,
   Home,
   Login,
+  NewThread,
+  NotFound,
   Register,
 } from './pages';
 import { isAccessTokenExist } from './utils/auth';
@@ -41,6 +43,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/new" element={<NewThread />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

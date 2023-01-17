@@ -27,10 +27,7 @@ function CommentInputBox({ id }) {
   async function addCommentHandler(e) {
     e.preventDefault();
     const { data } = await addCommentToThread({ id, comment });
-
-    if (data.status === 'success') {
-      addNewCommentToList(data.comment);
-    }
+    addNewCommentToList(data.comment);
   }
 
   if (!user) {

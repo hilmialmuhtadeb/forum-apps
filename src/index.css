@@ -124,6 +124,11 @@ nav {
 	cursor: pointer;
 }
 
+.app-header {
+	display: flex;
+	justify-content: space-between;
+}
+
 .threads-page {
 	width: 40%;
 	margin: 2rem auto;
@@ -236,4 +241,53 @@ nav {
 	width: 30px;
 	height: 30px;
 	border-radius: 50%;
+}
+
+.not-found {
+	text-align: center;
+	margin: 8rem 0;
+}
+.not-found h1 {
+	font-size: 2rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+
+.new-thread-wrapper {
+	width: 40%;
+	margin: 2rem auto;
+}
+.new-thread-wrapper h1 {
+	margin-bottom: 2rem;
+	font-size: 1.8rem;
+	font-weight: bold;
+}
+.new-thread-form label,
+.new-thread-form input,
+.new-thread-form textarea {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: 1.6rem;
+}
+.new-thread-form label {
+	margin-bottom: .5rem;
+}
+.new-thread-form input {
+	padding: .5rem;
+	margin-bottom: 1rem;
+}
+.new-thread-form textarea {
+	padding: .5rem;
+	resize: none;
+	margin-bottom: 1rem;
+}
+.new-thread-form button {
+	padding: .5rem 1rem;
+	cursor: pointer;
+	box-sizing: border-box;
+	align-self: stretch;
+	font-family: inherit;
 }
