@@ -13,7 +13,7 @@ function NewThread() {
   const navigate = useNavigate();
 
   async function addNewThreadToList(thread) {
-    const newThreads = [...threads, thread];
+    const newThreads = [thread, ...threads];
     dispatch({ type: 'thread/setThreads', payload: newThreads });
   }
 

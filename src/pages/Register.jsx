@@ -8,8 +8,14 @@ function Register() {
   const [password, onPasswordChange] = useInput('');
 
   async function registerHandler() {
-    const user = await registerUser({ name, email, password });
-    alert(`Akun ${user.name} berhasil dibuat!`);
+    await registerUser({ name, email, password })
+      .then(() => {
+        alert('Akun baru berhasil dibuat!');
+        window.location.href = '/login';
+      })
+      .catch(() => {
+        alert('Terjadi kesalahan saat membuat akun baru!');
+      });
   }
 
   return (

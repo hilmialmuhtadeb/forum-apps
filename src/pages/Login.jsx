@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { getUser, loginUser } from '../features/auth/authAPI';
+import { getAllUsers, getUser, loginUser } from '../features/auth/authAPI';
 import { authUser } from '../features/auth/authSlice';
 import { useInput } from '../utils/hooks';
 
@@ -17,6 +17,13 @@ function Login() {
 
     const { data } = await getUser();
     dispatch({ type: 'auth/setUser', payload: data.user });
+
+    async function initGetAllUsers() {
+      const { usersData } = await getAllUsers();
+      dispatch({ type: 'auth/setAllUsers', payload: usersData.users });
+    }
+
+    initGetAllUsers();
 
     navigate('/');
   }
