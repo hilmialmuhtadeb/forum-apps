@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import parse from 'html-react-parser';
 import CommentInputBox from '../component/CommentInputBox';
 import CommentsList from '../component/CommentsList';
-import { getDetailThread } from '../features/thread/threadAPI';
+// import { getDetailThread } from '../features/thread/threadAPI';
 import { formatDate } from '../utils/general';
 import { activeThreadSelector } from '../features/thread/threadSlice';
+import { fetchDetailThread } from '../features/thread/threadThunk';
 
 function Detail() {
   const { id } = useParams();
@@ -14,15 +15,18 @@ function Detail() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    async function initGetDetailThread() {
-      const { data } = await getDetailThread(id);
-      dispatch({ type: 'thread/setActiveThread', payload: data.detailThread });
-    }
+    // async function initGetDetailThread() {
+    //   const { data } = await getDetailThread(id);
+    //   dispatch({ type: 'thread/setActiveThread', payload: data.detailThread });
+    // }
 
-    initGetDetailThread();
+    // initGetDetailThread();
+
+    // return () => dispatch({ type: 'thread/setActiveThread', payload: null });
+    dispatch(fetchDetailThread(id));
 
     return () => dispatch({ type: 'thread/setActiveThread', payload: null });
-  }, [id]);
+  }, [id, dispatch]);
 
   if (!thread) {
     return (
