@@ -1,41 +1,42 @@
 import authReducer, {
-    setUser,
-    setAllUsers,
-    authUser,
-    allUsers
+  setUser,
+  setAllUsers,
+  authUser,
+  allUsers
 } from './authSlice';
 
-test('setUser reducer should update the user in the state', () => {
+describe('authSlice', () => {
+  it('setUser reducer should update the user in the state', () => {
     const initialState = {
-        user: null,
-        users: [],
+      user: null,
+      users: [],
     };
 
     const action = setUser({
-        id: 1,
-        username: 'exampleUser'
+      id: 1,
+      username: 'exampleUser'
     });
     const newState = authReducer(initialState, action);
 
     expect(newState.user).toEqual({
-        id: 1,
-        username: 'exampleUser'
+      id: 1,
+      username: 'exampleUser'
     });
     expect(newState.users.length).toBe(0);
-});
+  });
 
-test('setAllUsers reducer should update the users array in the state', () => {
+  it('setAllUsers reducer should update the users array in the state', () => {
     const initialState = {
-        user: null,
-        users: [],
+      user: null,
+      users: [],
     };
 
     const action = setAllUsers([{
-        id: 1,
-        username: 'user1'
+      id: 1,
+      username: 'user1'
     }, {
-        id: 2,
-        username: 'user2'
+      id: 2,
+      username: 'user2'
     }]);
     const newState = authReducer(initialState, action);
 
@@ -43,39 +44,39 @@ test('setAllUsers reducer should update the users array in the state', () => {
     expect(newState.users.length).toBe(2);
     expect(newState.users[0].id).toBe(1);
     expect(newState.users[1].username).toBe('user2');
-});
+  });
 
-test('authUser selector should return the user from the state', () => {
+  it('authUser selector should return the user from the state', () => {
     const state = {
-        auth: {
-            user: {
-                id: 1,
-                username: 'exampleUser'
-            },
-            users: [],
+      auth: {
+        user: {
+          id: 1,
+          username: 'exampleUser'
         },
+        users: [],
+      },
     };
 
     const selectedUser = authUser(state);
 
     expect(selectedUser).toEqual({
-        id: 1,
-        username: 'exampleUser'
+      id: 1,
+      username: 'exampleUser'
     });
-});
+  });
 
-test('allUsers selector should return the users array from the state', () => {
+  it('allUsers selector should return the users array from the state', () => {
     const state = {
-        auth: {
-            user: null,
-            users: [{
-                id: 1,
-                username: 'user1'
-            }, {
-                id: 2,
-                username: 'user2'
-            }],
-        },
+      auth: {
+        user: null,
+        users: [{
+          id: 1,
+          username: 'user1'
+        }, {
+          id: 2,
+          username: 'user2'
+        }],
+      },
     };
 
     const selectedUsers = allUsers(state);
@@ -83,4 +84,5 @@ test('allUsers selector should return the users array from the state', () => {
     expect(selectedUsers.length).toBe(2);
     expect(selectedUsers[0].id).toBe(1);
     expect(selectedUsers[1].username).toBe('user2');
+  });
 });
