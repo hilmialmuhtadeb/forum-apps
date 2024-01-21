@@ -22,7 +22,8 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "jest",
-    "e2e": "cypress run"
+    "e2e": "cypress run",
+    "ci:test": "jest --no-watch && start-server-and-test start http-get://0.0.0.0:3000 e2e"
   },
   "eslintConfig": {
     "extends": [
@@ -54,7 +55,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "^27.5.1",
     "jsdom": "^23.2.0",
-    "redux-mock-store": "^1.5.4"
+    "redux-mock-store": "^1.5.4",
+    "start-server-and-test": "^2.0.3"
   },
   "jest": {
     "transform": {
