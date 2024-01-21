@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { getAllUsers, getUser } from './features/auth/authAPI';
 import './index.css';
 import Navbar from './component/Navbar';
 import {
@@ -13,27 +12,26 @@ import {
   Register,
 } from './pages';
 import { isAccessTokenExist } from './utils/auth';
+import { fetchAllUsers, fetchAuthUser } from './features/auth/authThunk';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    async function initGetAuthUser() {
-      const { data } = await getUser();
-      dispatch({ type: 'auth/setUser', payload: data.user });
-    }
+    const initGetAllUsers = async () => {
+      dispatch(fetchAllUsers());
+    };
 
-    async function initGetAllUsers() {
-      const { data } = await getAllUsers();
-      dispatch({ type: 'auth/setAllUsers', payload: data.users });
-    }
+    const initGetAuthUser = async () => {
+      dispatch(fetchAuthUser());
+    };
 
     initGetAllUsers();
 
     if (isAccessTokenExist()) {
       initGetAuthUser();
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">

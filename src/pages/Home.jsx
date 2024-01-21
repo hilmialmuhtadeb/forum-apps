@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ThreadWrapper from '../component/ThreadWrapper';
 import { authUser } from '../features/auth/authSlice';
-import { getAllThreads } from '../features/thread/threadAPI';
+import { fetchAllThreads } from '../features/thread/threadThunk';
 import { threadSelector } from '../features/thread/threadSlice';
 
 function Home() {
@@ -12,13 +12,8 @@ function Home() {
   const user = useSelector(authUser);
 
   useEffect(() => {
-    async function initGetAllThreads() {
-      const { data } = await getAllThreads();
-      dispatch({ type: 'thread/setThreads', payload: data.threads });
-    }
-
     if (threads.length === 0) {
-      initGetAllThreads();
+      dispatch(fetchAllThreads());
     }
   }, []);
 
