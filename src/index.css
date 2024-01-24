@@ -161,9 +161,14 @@ nav {
 	display: flex;
 	align-items: center;
 	gap: .5rem;
+	font-size: .8rem;
+	margin-top: 1.5rem;
 }
 .thread-card__footer .author {
 	font-weight: bold;
+}
+.thread-card__comment-count {
+	margin-top: .2rem;
 }
 
 .thread-wrapper {

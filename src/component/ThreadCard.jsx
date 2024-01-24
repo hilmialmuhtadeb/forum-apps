@@ -24,10 +24,17 @@ function ThreadCard({ thread }) {
       <div className="thread-card__body">
         {parse(thread.body)}
       </div>
-      <div className="thread-card__footer">
-        <span className="author">{showThreadAuthor(thread.ownerId)}</span>
-        &middot;
-        <span>{formatDate(thread.createdAt)}</span>
+      <div>
+        <div className="thread-card__footer">
+          <span className="author">{showThreadAuthor(thread.ownerId)}</span>
+          &middot;
+          <span>{formatDate(thread.createdAt)}</span>
+        </div>
+        <p className="thread-card__comment-count">
+          {thread.totalComments}
+          &nbsp;
+          komentar
+        </p>
       </div>
     </div>
   );
