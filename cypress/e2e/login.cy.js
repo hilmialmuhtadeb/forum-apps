@@ -1,10 +1,3 @@
-// login spec
-// 1. should display login page correctly
-// 2. should display alert when email is empty
-// 3. should display alert when password is empty
-// 4. should display alert when email and password are incorrect
-// 5. should login successfully and display homepage when email and password are correct
-
 describe('login spec', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/login');
@@ -17,19 +10,19 @@ describe('login spec', () => {
     cy.get('button[type="submit"]').contains('Masuk').should('be.visible');
   });
 
-  it('should display alert when email is empty', () => {    
+  it('should display alert when email is empty', () => {
     cy.get('button[type="submit"]').click();
     cy.on('window:alert', (str) => {
-      expect(str).to.equal(`"email" is not allowed to be empty`)
-    })
+      expect(str).to.equal('"email" is not allowed to be empty');
+    });
   });
 
   it('should display alert when password is empty', () => {
     cy.get('input[id="email"]').type('admin@dicoding.com');
     cy.get('button[type="submit"').click();
     cy.on('window:alert', (str) => {
-      expect(str).to.equal(`"password" is not allowed to be empty`)
-    })
+      expect(str).to.equal('"password" is not allowed to be empty');
+    });
   });
 
   it('should display alert when username and password are incorrect', () => {
@@ -37,8 +30,8 @@ describe('login spec', () => {
     cy.get('input[id="password"]').type('password');
     cy.get('button[type="submit"').click();
     cy.on('window:alert', (str) => {
-      expect(str).to.equal(`email or password is wrong`)
-    })
+      expect(str).to.equal('email or password is wrong');
+    });
   });
 
   it('should login successfully and display homepage when username and password are correct', () => {

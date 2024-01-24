@@ -23,7 +23,8 @@
     "eject": "react-scripts eject",
     "test": "jest",
     "e2e": "cypress run",
-    "ci:test": "jest --no-watch && start-server-and-test start http-get://0.0.0.0:3000 e2e"
+    "ci:test": "jest --no-watch && start-server-and-test start http-get://0.0.0.0:3000 e2e",
+    "lint": "eslint . --ext .js,.jsx --max-warnings=0"
   },
   "eslintConfig": {
     "extends": [

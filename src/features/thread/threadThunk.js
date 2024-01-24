@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { getAllThreads, getDetailThread } from './threadAPI';
 import { setThreads, setActiveThread } from './threadSlice';
 

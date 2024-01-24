@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
@@ -33,7 +34,7 @@ describe('ThreadCard', () => {
         <Router>
           <ThreadCard thread={mockThread} />
         </Router>
-      </Provider>
+      </Provider>,
     );
 
     const titleElement = screen.getByText('Test Thread');

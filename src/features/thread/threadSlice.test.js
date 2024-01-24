@@ -2,7 +2,7 @@ import threadReducer, {
   setThreads,
   setActiveThread,
   threadSelector,
-  activeThreadSelector
+  activeThreadSelector,
 } from './threadSlice';
 
 describe('threadSlice', () => {
@@ -14,19 +14,19 @@ describe('threadSlice', () => {
 
     const action = setThreads([{
       id: 1,
-      title: 'Thread 1'
+      title: 'Thread 1',
     }, {
       id: 2,
-      title: 'Thread 2'
+      title: 'Thread 2',
     }]);
     const newState = threadReducer(initialState, action);
 
     expect(newState.threads).toEqual([{
       id: 1,
-      title: 'Thread 1'
+      title: 'Thread 1',
     }, {
       id: 2,
-      title: 'Thread 2'
+      title: 'Thread 2',
     }]);
     expect(newState.activeThread).toBeNull();
   });
@@ -39,13 +39,13 @@ describe('threadSlice', () => {
 
     const action = setActiveThread({
       id: 1,
-      title: 'Thread 1'
+      title: 'Thread 1',
     });
     const newState = threadReducer(initialState, action);
 
     expect(newState.activeThread).toEqual({
       id: 1,
-      title: 'Thread 1'
+      title: 'Thread 1',
     });
     expect(newState.threads.length).toBe(0);
   });
@@ -55,10 +55,10 @@ describe('threadSlice', () => {
       thread: {
         threads: [{
           id: 1,
-          title: 'Thread 1'
+          title: 'Thread 1',
         }, {
           id: 2,
-          title: 'Thread 2'
+          title: 'Thread 2',
         }],
         activeThread: null,
       },
@@ -68,10 +68,10 @@ describe('threadSlice', () => {
 
     expect(selectedThreads).toEqual([{
       id: 1,
-      title: 'Thread 1'
+      title: 'Thread 1',
     }, {
       id: 2,
-      title: 'Thread 2'
+      title: 'Thread 2',
     }]);
   });
 
@@ -81,7 +81,7 @@ describe('threadSlice', () => {
         threads: [],
         activeThread: {
           id: 1,
-          title: 'Thread 1'
+          title: 'Thread 1',
         },
       },
     };
@@ -90,7 +90,7 @@ describe('threadSlice', () => {
 
     expect(selectedActiveThread).toEqual({
       id: 1,
-      title: 'Thread 1'
+      title: 'Thread 1',
     });
   });
 });

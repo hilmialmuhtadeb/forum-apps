@@ -2,7 +2,7 @@ import authReducer, {
   setUser,
   setAllUsers,
   authUser,
-  allUsers
+  allUsers,
 } from './authSlice';
 
 describe('authSlice', () => {
@@ -14,13 +14,13 @@ describe('authSlice', () => {
 
     const action = setUser({
       id: 1,
-      username: 'exampleUser'
+      username: 'exampleUser',
     });
     const newState = authReducer(initialState, action);
 
     expect(newState.user).toEqual({
       id: 1,
-      username: 'exampleUser'
+      username: 'exampleUser',
     });
     expect(newState.users.length).toBe(0);
   });
@@ -33,10 +33,10 @@ describe('authSlice', () => {
 
     const action = setAllUsers([{
       id: 1,
-      username: 'user1'
+      username: 'user1',
     }, {
       id: 2,
-      username: 'user2'
+      username: 'user2',
     }]);
     const newState = authReducer(initialState, action);
 
@@ -51,7 +51,7 @@ describe('authSlice', () => {
       auth: {
         user: {
           id: 1,
-          username: 'exampleUser'
+          username: 'exampleUser',
         },
         users: [],
       },
@@ -61,7 +61,7 @@ describe('authSlice', () => {
 
     expect(selectedUser).toEqual({
       id: 1,
-      username: 'exampleUser'
+      username: 'exampleUser',
     });
   });
 
@@ -71,10 +71,10 @@ describe('authSlice', () => {
         user: null,
         users: [{
           id: 1,
-          username: 'user1'
+          username: 'user1',
         }, {
           id: 2,
-          username: 'user2'
+          username: 'user2',
         }],
       },
     };
