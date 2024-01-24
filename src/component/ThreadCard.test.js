@@ -9,6 +9,10 @@ import ThreadCard from './ThreadCard';
 
 const mockStore = configureStore();
 
+// skenario testing
+// ThreadCard
+// 1. renders ThreadCard component with correct data
+
 describe('ThreadCard', () => {
   it('renders ThreadCard component with correct data', () => {
     const mockThread = {

@@ -11,6 +11,13 @@ const mockStore = configureMockStore(middlewares);
 // Mock the authAPI functions
 jest.mock('./authAPI');
 
+// skenario testing
+// AuthThunk
+// 1. fetchAuthUser should dispatch setUser on successful fetch
+// 2. fetchAuthUser should handle errors during fetchAuthUser
+// 3. fetchAllUsers should dispatch setAllUsers on successful fetch
+// 4. fetchAllUsers should handle errors during fetchAllUsers
+
 describe('authThunk', () => {
   describe('fetchAuthUser', () => {
     it('dispatches setUser on successful fetch', async () => {

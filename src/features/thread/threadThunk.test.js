@@ -11,6 +11,13 @@ const mockStore = configureMockStore(middlewares);
 // Mock the threadAPI functions
 jest.mock('./threadAPI');
 
+// skenario testing
+// ThreadThunk
+// 1. fetchAllThreads should dispatch setThreads on successful fetch
+// 2. fetchAllThreads should handle errors during fetchAllThreads
+// 3. fetchDetailThread should dispatch setActiveThread on successful fetch
+// 4. fetchDetailThread should handle errors during fetchDetailThread
+
 describe('threadThunk', () => {
   describe('fetchAllThreads', () => {
     it('dispatches setThreads on successful fetch', async () => {

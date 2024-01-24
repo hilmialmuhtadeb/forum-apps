@@ -1,3 +1,12 @@
+/* eslint-disable max-len */
+
+// Login Spec:
+// 1. Login page should display correctly
+// 2. Login page should display alert when email is empty
+// 3. Login page should display alert when password is empty
+// 4. Login page should display alert when username and password are incorrect
+// 5. Login page should login successfully and display homepage when username and password are correct
+
 describe('login spec', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/login');

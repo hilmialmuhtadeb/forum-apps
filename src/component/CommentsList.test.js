@@ -4,6 +4,10 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import CommentsList from './CommentsList';
 
+// skenario testing
+// CommentsList
+// 1. renders CommentsList component with correct data
+
 describe('CommentsList', () => {
   it('renders CommentsList component with correct data', () => {
     const mockComments = [

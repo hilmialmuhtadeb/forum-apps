@@ -5,6 +5,13 @@ import authReducer, {
   allUsers,
 } from './authSlice';
 
+// skenario testing
+// AuthSlice
+// 1. setUser reducer should update the user in the state
+// 2. setAllUsers reducer should update the users array in the state
+// 3. authUser selector should return the user from the state
+// 4. allUsers selector should return the users array from the state
+
 describe('authSlice', () => {
   it('setUser reducer should update the user in the state', () => {
     const initialState = {

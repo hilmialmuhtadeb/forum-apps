@@ -5,6 +5,13 @@ import threadReducer, {
   activeThreadSelector,
 } from './threadSlice';
 
+// skenario testing
+// ThreadSlice
+// 1. setThreads reducer should update the threads in the state
+// 2. setActiveThread reducer should update the activeThread in the state
+// 3. threadSelector selector should return the threads from the state
+// 4. activeThreadSelector selector should return the activeThread from the state
+
 describe('threadSlice', () => {
   it('setThreads reducer should update the threads in the state', () => {
     const initialState = {
